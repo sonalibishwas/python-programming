@@ -16,7 +16,36 @@ class Solution:
     # @param A : list of integers
     # @param B : integer
     # @return an integer
-    def threeSumClosest(self, A, B):
+    def threeSumClosest(self,A,B):
+	#working code
+	import pdb
+#	pdb.set_trace()
+	A.sort()
+	min_diff = float('inf')
+	for a in range(0,len(A)-2):
+		i = a+1
+		j = len(A)-1
+		req = B-A[a]
+		while i<j:
+			if i ==a or j==a:
+				break
+			diff = req-(A[i]+A[j])
+			if diff==0:
+				pdb.set_trace()
+				return A[a]+A[i]+A[j]
+			if abs(diff) < min_diff:
+				min_diff=abs(diff)
+				idx = a,i,j
+			if A[i]+A[j]<req:
+				i+=1
+			elif A[i]+A[j]>req:
+				j-=1
+	a,i,j=idx
+	pdb.set_trace()
+	return A[a]+A[i]+A[j]
+				
+			
+    def notworkingthreeSumClosest(self, A, B):
 	A.sort()
 	diff = float("inf")
 	result = 0
@@ -35,6 +64,6 @@ class Solution:
 	return result
 if __name__ == "__main__":
 	obj = Solution()
-	A = [4, 7, -4, 2, 2, 2, 3, -5, -3, 9, -4, 9, -7, 7, -1, 9, 9, 4, 1, -4, -2, 3, -3, -5, 4, -7, 7, 9, -4, 4, -8 ]
-	B = -3
+	A=[2, 1, -9, -7, -8, 2, -8, 2, 3, -8]
+	B = -1
 	print obj.threeSumClosest(A,B)
