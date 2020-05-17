@@ -31,4 +31,5 @@ if __name__ == "__main__":
 	obj = Solution()
 	A = [0,1,2,3,3,4,4,5]
 	B = 0
-	print obj.findCount(A,B)
+	print (obj.findCount(A,B))
+
